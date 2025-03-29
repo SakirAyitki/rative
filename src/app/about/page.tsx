@@ -147,7 +147,7 @@ export default function About() {
               2019'dan beri sosyal medya analizi alanında yenilikçi çözümler sunuyoruz. 
               Amacımız, işletmelerin sosyal medya stratejilerini veriye dayalı kararlarla güçlendirmek.
             </p>
-            <RainbowButton href="/register" className="!px-8 !py-4 text-lg">
+            <RainbowButton href="/early-access" className="!px-8 !py-4 text-lg">
               Bize Katılın <ArrowRight className="w-5 h-5 ml-2" />
             </RainbowButton>
           </motion.div>
@@ -366,7 +366,7 @@ export default function About() {
             <p className="text-xl text-gray-400 mb-12">
               Sosyal medya başarınızı bir üst seviyeye taşımak için hazır mısınız?
             </p>
-            <RainbowButton href="/register" className="!px-8 !py-4 text-lg">
+            <RainbowButton href="/early-access" className="!px-8 !py-4 text-lg">
               Hemen Başlayın <ArrowRight className="w-5 h-5 ml-2" />
             </RainbowButton>
           </div>

@@ -223,7 +223,7 @@ export default function Privacy() {
                   Uluslararası veri aktarımları
                 </h2>
                 <p className="text-gray-300 leading-relaxed">
-                  Genel Veri Koruma Yönetmeliği (GDPR) ve diğer veri koruma yasaları uyarınca, hakkınızdaki bilgiler yalnızca belirli gereksinimlerin karşılanması durumunda bölgenizden diğer bölgelere aktarılabilir.
+                  Genel Veri Koruma Yönetmeliği (KVKK) ve diğer veri koruma yasaları uyarınca, hakkınızdaki bilgiler yalnızca belirli gereksinimlerin karşılanması durumunda bölgenizden diğer bölgelere aktarılabilir.
                 </p>
               </div>
 

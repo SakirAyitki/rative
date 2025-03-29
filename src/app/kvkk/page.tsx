@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/ui/footer";
 
-export default function GDPR() {
+export default function KVKK() {
   return (
     <main className="relative bg-gradient-to-b from-gray-900 via-black to-gray-900 min-h-screen">
       {/* Hero Section */}

@@ -144,7 +144,7 @@ export function HeroGeometric({
               >
                 <div className="flex justify-center">
                   <RainbowButton
-                    href="#pricing"
+                    href="/early-access"
                     className="!px-8 !py-4 text-m"
                   >
                     Ücretsiz Deneyin

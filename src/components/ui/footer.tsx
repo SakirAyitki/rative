@@ -88,7 +88,7 @@ export function Footer() {
     yasal: [
       { name: "Gizlilik Politikası", href: "/privacy" },
       { name: "Çerez Politikası", href: "/cookies" },
-      { name: "KVKK", href: "/gdpr" },
+      { name: "KVKK", href: "/kvkk" },
     ],
   };
 
@@ -99,7 +99,7 @@ export function Footer() {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "info@rative.com", href: "mailto:info@rative.com" },
+    { icon: Mail, text: "info@rative.com", href: "mailto:info@rative.com"},
     { icon: Phone, text: "+90 (555) 123 45 67", href: "tel:+905551234567" },
     { icon: MapPin, text: "İstanbul, Türkiye", href: "https://maps.app.goo.gl/jsWzN1ELsdcEBDTx5" },
   ];
