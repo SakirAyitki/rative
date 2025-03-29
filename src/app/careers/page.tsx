@@ -203,8 +203,12 @@ export default function Careers() {
                   </div>
                   <div className="flex justify-end mt-4">
                     <RainbowButton 
+                      href="#"
                       className="!px-6 !py-3" 
-                      onClick={() => handleApply(position.title)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleApply(position.title);
+                      }}
                     >
                       <span className="flex items-center gap-2">
                         Başvur

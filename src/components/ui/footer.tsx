@@ -61,8 +61,24 @@ export function Footer() {
       },
     ],
     destek: [
-      { name: "Yardım Merkezi", href: "/help" },
-      { name: "SSS", href: "/faq" },
+      { 
+        name: "Yardım Merkezi", 
+        href: "/help",
+        onClick: () => router.push('/help')
+      },
+      { 
+        name: "SSS", 
+        href: "/help#popular-topics",
+        onClick: async () => {
+          await router.push('/help');
+          setTimeout(() => {
+            const element = document.getElementById('popular-topics');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        }
+      },
       { 
         name: "İletişim", 
         href: "/contact",
@@ -71,7 +87,7 @@ export function Footer() {
     ],
     yasal: [
       { name: "Gizlilik Politikası", href: "/privacy" },
-      { name: "Kullanım Koşulları", href: "/terms" },
+      { name: "Çerez Politikası", href: "/cookies" },
       { name: "KVKK", href: "/gdpr" },
     ],
   };

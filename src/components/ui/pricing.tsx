@@ -33,7 +33,7 @@ const plans = [
     ],
     description: "Bireysel kullanıcılar ve küçük işletmeler için ideal",
     buttonText: "Ücretsiz Dene",
-    href: "/register",
+    href: "/payment/starter",
     isPopular: false
   },
   {
@@ -49,7 +49,7 @@ const plans = [
     ],
     description: "Büyüyen işletmeler ve profesyonel kullanım için",
     buttonText: "Hemen Başla",
-    href: "/register",
+    href: "/payment/professional",
   },
   {
     name: "KURUMSAL",
@@ -64,7 +64,7 @@ const plans = [
     ],
     description: "Büyük kurumlar ve özel ihtiyaçlar için",
     buttonText: "Bizimle İletişime Geçin",
-    href: "/contact",
+    href: "/payment/enterprise",
     isPopular: false
   }
 ];
@@ -181,7 +181,7 @@ export function Pricing() {
                   {/* Buton ve Açıklama */}
                   <div className="relative z-30">
                     <RainbowButton 
-                      href={undefined}
+                      href={plan.href}
                       className={cn(
                         "w-full !px-6 !py-3 text-base",
                         plan.isPopular ? "bg-brand-primary hover:bg-brand-primary/90" : ""

@@ -92,6 +92,22 @@ function NavHeader() {
     }
   };
 
+  const handlePricingClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      // Ana sayfadaysa direkt scroll
+      document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Ana sayfada değilse ana sayfaya yönlendir ve pricing'e scroll
+      router.push('/#pricing');
+    }
+  };
+
+  const handleEarlyAccessClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push('/early-access');
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#040837]/50 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 py-3">
@@ -207,7 +223,11 @@ function NavHeader() {
 
           {/* Right Buttons */}
           <div className="flex items-center gap-4">
-            <RainbowButton href="/register" className="!px-6 !py-3 text-m">
+            <RainbowButton 
+              href="/early-access"
+              className="!px-6 !py-3 text-m"
+              onClick={handleEarlyAccessClick}
+            >
               Ücretsiz Deneyin
             </RainbowButton>
           </div>

@@ -1,18 +1,20 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RainbowButtonProps {
+  children: React.ReactNode;
   href?: string;
   className?: string;
-  children: React.ReactNode;
+  target?: string;
+  rel?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export function RainbowButton({ href, className, children, ...props }: RainbowButtonProps) {
-  const Comp = href ? 'a' : 'button';
-  
+export function RainbowButton({ children, href, className, target, rel, onClick }: RainbowButtonProps) {
   return (
-    <Comp
-      href={href}
+    <Link 
+      href={href || '#'}
       className={cn(
         "relative group z-20",
         "inline-flex items-center justify-center",
@@ -22,7 +24,9 @@ export function RainbowButton({ href, className, children, ...props }: RainbowBu
         "cursor-pointer",
         className
       )}
-      {...props}
+      target={target}
+      rel={rel}
+      onClick={onClick}
     >
       {/* Dönen gradient border */}
       <div 
@@ -54,6 +58,6 @@ export function RainbowButton({ href, className, children, ...props }: RainbowBu
           }
         }
       `}</style>
-    </Comp>
+    </Link>
   );
 } 
