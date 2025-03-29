@@ -25,12 +25,18 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative bg-brand-background">
-      <div className="container mx-auto">
+    <section className="relative bg-brand-background min-h-screen flex items-center">
+      {/* Üst Ayraç */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-transparent via-brand-primary/5 to-transparent" />
+      
+      {/* İnce Çizgi */}
+      <div className="absolute inset-x-0 top-0 border-t border-white/5" />
+
+      <div className="container mx-auto pt-32 pb-32">
         {/* Başlık */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Rative İle Güçlenenler Neler Söylüyor?
+            Rative İle Güçlenenler Neler Söylüyor?
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Rative'i kullanan müşterilerimizin deneyimlerini dinleyin
@@ -39,6 +45,9 @@ export function Testimonials() {
 
         <AnimatedTestimonials testimonials={testimonials} />
       </div>
+
+      {/* Alt Ayraç */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-transparent via-brand-secondary/5 to-transparent" />
     </section>
   );
 } 

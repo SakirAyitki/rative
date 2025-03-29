@@ -6,9 +6,13 @@ import { useRef } from "react";
 export const GlareCard = ({
   children,
   className,
+  href,
+  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
+  href?: string;
+  onClick?: () => void;
 }) => {
   const isPointerInside = useRef(false);
   const refElement = useRef<HTMLDivElement>(null);
@@ -66,10 +70,22 @@ export const GlareCard = ({
     }
   };
 
+  const Container = href ? 'div' : 'div';
+
   return (
-    <div
+    <Container
+      onClick={() => {
+        if (href) {
+          window.location.href = href;
+        }
+        onClick?.();
+      }}
       style={containerStyle}
-      className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-full [aspect-ratio:17/21]"
+      className={cn(
+        "relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-full [aspect-ratio:17/21]",
+        href && "cursor-pointer",
+        className
+      )}
       ref={refElement}
       onPointerMove={(event) => {
         const rotateFactor = 0.4;
@@ -130,6 +146,6 @@ export const GlareCard = ({
           style={{ ...backgroundStyle }}
         />
       </div>
-    </div>
+    </Container>
   );
 }; 

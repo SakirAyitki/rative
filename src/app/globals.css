@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #040837;
+  --background: #030729;
   --foreground: #ffffff;
 }
 
@@ -14,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #040837;
+    --background: #030729;
     --foreground: #ededed;
   }
 }
@@ -23,4 +26,24 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scroll çubuğunu gizle */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox için */
+* {
+  scrollbar-width: none;
+}
+
+/* IE ve Edge için */
+* {
+  -ms-overflow-style: none;
+}
+
+/* Scroll davranışını smooth yap */
+html {
+  scroll-behavior: smooth;
 }

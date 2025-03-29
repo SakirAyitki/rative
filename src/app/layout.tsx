@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavHeader } from "@/components/ui/nav-header";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { AnimatedGradientBackground } from "@/components/ui/animated-gradient-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +28,8 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AnimatedGradientBackground />
+        <ScrollProgress />
         <NavHeader />
         {children}
       </body>

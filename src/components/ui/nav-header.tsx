@@ -67,6 +67,13 @@ function NavHeader() {
     setPosition((pv) => ({ ...pv, opacity: 0 }));
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#040837]/50 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 py-3">
@@ -94,83 +101,27 @@ function NavHeader() {
                 }
               }}
             >
-              <Tab setPosition={setPosition} calculatePosition={calculatePosition}>
+              <Tab 
+                setPosition={setPosition} 
+                calculatePosition={calculatePosition}
+                onClick={() => scrollToSection('services')}
+              >
                 Hizmetler
               </Tab>
+              <Tab 
+                setPosition={setPosition} 
+                calculatePosition={calculatePosition}
+                onClick={() => scrollToSection('pricing')}
+              >
+                Fiyatlandırma
+              </Tab>
               <Tab setPosition={setPosition} calculatePosition={calculatePosition}>
-                Planlar
+              Hakkımızda
               </Tab>
               <Tab setPosition={setPosition} calculatePosition={calculatePosition}>
                 İletişim
               </Tab>
               
-              {/* Hakkımızda Dropdown */}
-              <div className="relative group">
-                <Tab 
-                  setPosition={setPosition}
-                  calculatePosition={calculatePosition}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleDropdown('about');
-                  }}
-                  isActive={dropdownOpen.about}
-                >
-                  <span className="flex items-center gap-1">
-                    Hakkımızda
-                    <ChevronDown 
-                      className={cn(
-                        "h-4 w-4 transition-transform",
-                        dropdownOpen.about && "rotate-180"
-                      )} 
-                    />
-                  </span>
-                </Tab>
-                {dropdownOpen.about && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-[calc(100%+0.5rem)] right-0 w-48 rounded-lg border border-white/10 bg-[#040837] p-2 shadow-lg"
-                    onMouseLeave={() => handleMouseLeave('about')}
-                  >
-                    <ul className="space-y-1">
-                      <li 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMouseLeave('about');
-                        }}
-                        className="rounded-md px-3 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white cursor-pointer"
-                      >
-                        <a href="/sirket-bilgileri" className="block w-full h-full">
-                          Şirket Bilgileri
-                        </a>
-                      </li>
-                      <li 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMouseLeave('about');
-                        }}
-                        className="rounded-md px-3 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white cursor-pointer"
-                      >
-                        <a href="/ekibimiz" className="block w-full h-full">
-                          Ekibimiz
-                        </a>
-                      </li>
-                      <li 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMouseLeave('about');
-                        }}
-                        className="rounded-md px-3 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white cursor-pointer"
-                      >
-                        <a href="/kariyer" className="block w-full h-full">
-                          Kariyer
-                        </a>
-                      </li>
-                    </ul>
-                  </motion.div>
-                )}
-              </div>
 
               {/* Dil Dropdown */}
               <div className="relative group">
@@ -230,7 +181,7 @@ function NavHeader() {
 
           {/* Right Buttons */}
           <div className="flex items-center gap-4">
-            <RainbowButton className="!px-6 !py-2 text-sm">
+            <RainbowButton href="/register" className="!px-6 !py-3 text-m">
               Ücretsiz Deneyin
             </RainbowButton>
           </div>
