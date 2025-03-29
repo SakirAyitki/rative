@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
@@ -22,48 +23,71 @@ interface FooterLinks {
   [key: string]: FooterLink[];
 }
 
-const footerLinks: FooterLinks = {
-  ürün: [
-    { 
-      name: "Hizmetler", 
-      href: "#services",
-      onClick: () => scrollToSection('services')
-    },
-    { 
-      name: "Fiyatlandırma", 
-      href: "#pricing",
-      onClick: () => scrollToSection('pricing')
-    }
-  ],
-  şirket: [
-    { name: "Hakkımızda", href: "/about" },
-    { name: "Kariyer", href: "/careers" },
-  ],
-  destek: [
-    { name: "Yardım Merkezi", href: "/help" },
-    { name: "SSS", href: "/faq" },
-    { name: "İletişim", href: "/contact" },
-  ],
-  yasal: [
-    { name: "Gizlilik Politikası", href: "/privacy" },
-    { name: "Kullanım Koşulları", href: "/terms" },
-    { name: "KVKK", href: "/gdpr" },
-  ],
-};
-
-const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/use.rative" },
-  { icon: Instagram, href: "https://www.instagram.com/use_rative/" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/rative" },
-];
-
-const contactInfo = [
-  { icon: Mail, text: "info@rative.com", href: "mailto:info@rative.com" },
-  { icon: Phone, text: "+90 (555) 123 45 67", href: "tel:+905551234567" },
-  { icon: MapPin, text: "İstanbul, Türkiye", href: "https://maps.app.goo.gl/jsWzN1ELsdcEBDTx5" },
-];
-
 export function Footer() {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleNavigation = (sectionId: string) => {
+    if (pathname === '/') {
+      scrollToSection(sectionId);
+    } else {
+      router.push(`/#${sectionId}`);
+    }
+  };
+
+  const footerLinks: FooterLinks = {
+    ürün: [
+      { 
+        name: "Hizmetler", 
+        href: "#services",
+        onClick: () => handleNavigation('services')
+      },
+      { 
+        name: "Fiyatlandırma", 
+        href: "#pricing",
+        onClick: () => handleNavigation('pricing')
+      }
+    ],
+    şirket: [
+      { 
+        name: "Hakkımızda", 
+        href: "/about",
+        onClick: () => router.push('/about')
+      },
+      { 
+        name: "Kariyer", 
+        href: "/careers",
+        onClick: () => router.push('/careers')
+      },
+    ],
+    destek: [
+      { name: "Yardım Merkezi", href: "/help" },
+      { name: "SSS", href: "/faq" },
+      { 
+        name: "İletişim", 
+        href: "/contact",
+        onClick: () => router.push('/contact')
+      },
+    ],
+    yasal: [
+      { name: "Gizlilik Politikası", href: "/privacy" },
+      { name: "Kullanım Koşulları", href: "/terms" },
+      { name: "KVKK", href: "/gdpr" },
+    ],
+  };
+
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/use.rative" },
+    { icon: Instagram, href: "https://www.instagram.com/use_rative/" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/rative" },
+  ];
+
+  const contactInfo = [
+    { icon: Mail, text: "info@rative.com", href: "mailto:info@rative.com" },
+    { icon: Phone, text: "+90 (555) 123 45 67", href: "tel:+905551234567" },
+    { icon: MapPin, text: "İstanbul, Türkiye", href: "https://maps.app.goo.gl/jsWzN1ELsdcEBDTx5" },
+  ];
+
   return (
     <footer className="relative bg-brand-background">
       {/* Üst Ayraç */}

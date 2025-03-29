@@ -7,6 +7,7 @@ import { ChevronDown, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { RainbowButton } from "@/components/ui/rainbow-button"
+import { useRouter, usePathname } from "next/navigation";
 
 type DropdownState = {
   about: boolean;
@@ -14,6 +15,9 @@ type DropdownState = {
 };
 
 function NavHeader() {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -67,6 +71,20 @@ function NavHeader() {
     setPosition((pv) => ({ ...pv, opacity: 0 }));
   };
 
+  const handleNavigation = (path: string) => {
+    // Eğer path '/' ile başlıyorsa, bu bir sayfa yönlendirmesidir
+    if (path.startsWith('/')) {
+      router.push(path);
+    } else {
+      // Değilse bir section'a scroll yapılacaktır
+      if (pathname === '/') {
+        scrollToSection(path);
+      } else {
+        router.push(`/#${path}`);
+      }
+    }
+  };
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -104,21 +122,29 @@ function NavHeader() {
               <Tab 
                 setPosition={setPosition} 
                 calculatePosition={calculatePosition}
-                onClick={() => scrollToSection('services')}
+                onClick={() => handleNavigation('services')}
               >
                 Hizmetler
               </Tab>
               <Tab 
                 setPosition={setPosition} 
                 calculatePosition={calculatePosition}
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => handleNavigation('pricing')}
               >
                 Fiyatlandırma
               </Tab>
-              <Tab setPosition={setPosition} calculatePosition={calculatePosition}>
-              Hakkımızda
+              <Tab 
+                setPosition={setPosition} 
+                calculatePosition={calculatePosition}
+                onClick={() => handleNavigation('/about')}
+              >
+                Hakkımızda
               </Tab>
-              <Tab setPosition={setPosition} calculatePosition={calculatePosition}>
+              <Tab 
+                setPosition={setPosition} 
+                calculatePosition={calculatePosition}
+                onClick={() => handleNavigation('/contact')}
+              >
                 İletişim
               </Tab>
               

@@ -1,13 +1,13 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface RainbowButtonProps {
-  children: React.ReactNode;
-  className?: string;
+interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
+  className?: string;
+  children: React.ReactNode;
 }
 
-export function RainbowButton({ children, className, href }: RainbowButtonProps) {
+export function RainbowButton({ href, className, children, ...props }: RainbowButtonProps) {
   const Comp = href ? 'a' : 'button';
   
   return (
@@ -19,8 +19,10 @@ export function RainbowButton({ children, className, href }: RainbowButtonProps)
         "px-8 py-3 rounded-full",
         "text-white font-medium text-base",
         "transition-all duration-300",
+        "cursor-pointer",
         className
       )}
+      {...props}
     >
       {/* Dönen gradient border */}
       <div 
