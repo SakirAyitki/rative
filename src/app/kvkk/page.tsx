@@ -53,7 +53,7 @@ export default function KVKK() {
                   Aydınlatma Metni Hakkında
                 </h2>
                 <p className="text-gray-300 leading-relaxed">
-                  Kişisel Verilerin İşlenmesi Aydınlatma Metnimizi ("Aydınlatma Metni") Kişisel Verilerin Korunması Kanunu (KVKK) ve yasal düzenlemeler çerçevesinde kişisel verilerinizin işlenmesi, saklanması ve aktarılmasına ilişkin veri sahibi ilgili kişileri bilgilendirmek amacıyla hazırladık. Bu sayfa içerisinde veri sorumlusu olarak bilgilerimize, kişisel verilerin hangi amaçla işleneceği, kimlere ve hangi amaçla aktarılabileceğine, kişisel veri toplamanın yöntemi ve hukuki sebebine, KVKK da sayılı haklarınız hakkında tüm bilgiye ulaşabilirsiniz.
+                  Kişisel Verilerin İşlenmesi Aydınlatma Metnimizi (&quot;Aydınlatma Metni&quot;) Kişisel Verilerin Korunması Kanunu (KVKK) ve yasal düzenlemeler çerçevesinde kişisel verilerinizin işlenmesi, saklanması ve aktarılmasına ilişkin veri sahibi ilgili kişileri bilgilendirmek amacıyla hazırladık. Bu sayfa içerisinde veri sorumlusu olarak bilgilerimize, kişisel verilerin hangi amaçla işleneceği, kimlere ve hangi amaçla aktarılabileceğine, kişisel veri toplamanın yöntemi ve hukuki sebebine, KVKK da sayılı haklarınız hakkında tüm bilgiye ulaşabilirsiniz.
                 </p>
               </div>
 

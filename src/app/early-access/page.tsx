@@ -58,7 +58,7 @@ export default function EarlyAccess() {
       } else {
         throw new Error();
       }
-    } catch (error) {
+    } catch (_) {
       alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
     } finally {
       setIsLoading(false);

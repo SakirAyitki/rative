@@ -50,7 +50,7 @@ export default function Cookies() {
               {/* Çerez Nedir */}
               <div className="bg-white/5 rounded-2xl p-12 backdrop-blur-sm border border-white/10">
                 <h2 className="text-3xl font-bold text-white mb-8">
-                  Çerez ("Cookie") Nedir?
+                  Çerez (&quot;Cookie&quot;) Nedir?
                 </h2>
                 <p className="text-gray-300 leading-relaxed">
                   Çerezler, bir web sayfası ziyaret edildiği zaman tarayıcılardaki kullanıcıların depolandığı genelde harf ve rakamlardan oluşan çok küçük metin dosyalarıdır. Kişilerin web siteleri üzerinde aradıklarını tarayıcı geçmişinde kayıt tutar. Site üzerindeki hareketleri tarayıcı kayıtlarında tutarak bir web sitesine izin verir. Çerezler, web sitelerine aynı ziyaretçinin siteyi yeniden ziyaret ettiğini gösteren kimlik kartlarına benzetilebilir. Çerezler, ziyaretçilere ilişkin isim, cinsiyet veya adres gibi kişisel verileri içermezler.

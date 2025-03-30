@@ -5,7 +5,7 @@ import { useScrollAnimation, scrollVariants } from "@/hooks/use-scroll-animation
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Footer } from "@/components/ui/footer";
 import { Mail, MapPin, Phone, Send, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const contactInfo = [
   {
@@ -42,6 +42,7 @@ export default function Contact() {
     subject: "",
     message: ""
   });
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

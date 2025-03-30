@@ -71,7 +71,12 @@ const formatExpiryDate = (value: string) => {
 export default function Payment() {
   const params = useParams();
   const [isYearly, setIsYearly] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<any>(null);
+  const [selectedPlan, setSelectedPlan] = useState<{
+    name: string;
+    price: string;
+    yearlyPrice: string;
+    features: string[];
+  } | null>(null);
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');

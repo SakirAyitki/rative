@@ -144,7 +144,7 @@ export default function About() {
               </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
-              2019'dan beri sosyal medya analizi alanında yenilikçi çözümler sunuyoruz. 
+              2019&apos;dan beri sosyal medya analizi alanında yenilikçi çözümler sunuyoruz. 
               Amacımız, işletmelerin sosyal medya stratejilerini veriye dayalı kararlarla güçlendirmek.
             </p>
             <RainbowButton href="/early-access" className="!px-8 !py-4 text-lg">
