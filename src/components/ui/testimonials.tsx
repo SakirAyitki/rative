@@ -4,7 +4,7 @@ import { AnimatedTestimonials } from "./animated-testimonials";
 
 const testimonials = [
   {
-    quote: "Rative sayesinde sosyal medya yönetimimiz çok daha kolay ve verimli hale geldi. Özellikle rakip analizi özelliği stratejilerimizi geliştirmemizde büyük fayda sağladı.",
+    quote: "Rative sayesinde sosyal medya yönetimimiz çok daha kolay ve verimli hale geldi. Özellikle rakip analizi özelliği çok faydalıydı.",
     name: "Ahmet Yılmaz",
     designation: "Pazarlama Müdürü, TechCo",
     src: "/testimonials/person1.jpg" // Bu görselleri public/testimonials klasörüne eklemelisiniz

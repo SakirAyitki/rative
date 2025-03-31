@@ -138,10 +138,8 @@ export default function About() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-              Sosyal Medya Analitiğinin
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+              Sosyal Medya Analitiğinin <br />
                 Geleceğini Şekillendiriyoruz
-              </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
               2019&apos;dan beri sosyal medya analizi alanında yenilikçi çözümler sunuyoruz. 
@@ -236,19 +234,19 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 md:py-20 relative overflow-hidden">
         <motion.div
           initial="hidden"
           animate={controls}
           variants={scrollVariants}
           className="container mx-auto px-4"
         >
-          <h2 className="text-4xl font-bold text-white text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-16">
             Yolculuğumuz
           </h2>
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-brand-primary to-brand-secondary" />
+            {/* Timeline Line - Hidden on mobile */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-brand-primary to-brand-secondary" />
             
             {/* Timeline Items */}
             {timeline.map((item, index) => (
@@ -262,14 +260,19 @@ export default function About() {
                     transition: { delay: 0.2 * index }
                   }
                 }}
-                className={`flex items-center mb-16 ${
-                  index % 2 === 0 ? 'justify-end' : 'justify-start'
+                className={`flex items-center mb-8 md:mb-16 ${
+                  // Center on mobile, alternate sides on desktop
+                  `flex-col md:flex-row ${
+                    index % 2 === 0 
+                      ? 'md:justify-end items-center md:items-start' 
+                      : 'md:justify-start items-center md:items-start'
+                  }`
                 }`}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div className="relative group">
-                    {/* Dot on timeline */}
-                    <div className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-brand-primary 
+                    {/* Dot on timeline - Hidden on mobile */}
+                    <div className="hidden md:block absolute top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-brand-primary 
                                   group-hover:scale-150 transition-transform duration-300
                                   shadow-[0_0_20px_rgba(43,149,255,0.5)]"
                          style={{
@@ -279,20 +282,22 @@ export default function About() {
                     />
                     
                     {/* Card */}
-                    <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10
+                    <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10
                                   transform transition-all duration-300 group-hover:scale-105
-                                  hover:shadow-[0_0_30px_rgba(43,149,255,0.2)]">
+                                  hover:shadow-[0_0_30px_rgba(43,149,255,0.2)]
+                                  max-w-[90vw] md:max-w-none mx-auto md:mx-0">
                       {/* Year Badge */}
-                      <div className="absolute top-0 transform -translate-y-1/2
+                      <div className="absolute top-0 left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 -translate-y-1/2
                                     bg-gradient-to-r from-brand-primary to-brand-secondary
-                                    text-white px-4 py-1 rounded-full text-sm font-bold">
+                                    text-white px-4 py-1 rounded-full text-sm font-bold
+                                    whitespace-nowrap">
                         {item.year}
                       </div>
                       
                       {/* Content */}
-                      <div className="mt-4">
-                        <h3 className="text-white text-xl font-bold mb-3">{item.title}</h3>
-                        <p className="text-gray-400">{item.description}</p>
+                      <div className="mt-6 md:mt-4">
+                        <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{item.title}</h3>
+                        <p className="text-sm md:text-base text-gray-400">{item.description}</p>
                       </div>
                       
                       {/* Decorative elements */}
@@ -376,4 +381,4 @@ export default function About() {
       <Footer />
     </main>
   );
-} 
+}

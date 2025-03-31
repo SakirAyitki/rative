@@ -87,7 +87,7 @@ export const AnimatedTestimonials = ({
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex gap-4 pt-12 md:pt-0 relative z-10">
+          <div className="flex gap-4 pt-12 mt-12 md:pt-0 relative z-10">
             <button
               onClick={handlePrev}
               className="h-12 w-12 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors duration-200 cursor-pointer"
